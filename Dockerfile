@@ -3,7 +3,7 @@ FROM alpine:3.5
 #Create Ant Dir
 RUN mkdir -p /opt/ant/
 #Download And 1.9.8
-RUN wget http://archive.apache.org/dist/ant/binaries/apache-ant-1.9.8-bin.tar.gz -P /opt/ant
+RUN wget --no-check-certificate http://archive.apache.org/dist/ant/binaries/apache-ant-1.9.8-bin.tar.gz -P /opt/ant
 #Unpack Ant
 RUN tar -xvzf /opt/ant/apache-ant-1.9.8-bin.tar.gz -C /opt/ant/
 # Remove tar file
