@@ -1,14 +1,17 @@
 FROM alpine:3.5
-# Install necessary tools
-RUN apt-get update && apt-get install -y curl
-#Create Ant Dir
+
+# Install necessary tools using apk
+RUN apk update && apk add curl
+
+# Create the directory for Ant
 RUN mkdir -p /opt/ant/
+
 # Download Ant using curl
 RUN curl -L http://archive.apache.org/dist/ant/binaries/apache-ant-1.9.8-bin.tar.gz -o /opt/ant/apache-ant-1.9.8-bin.tar.gz
-#Download And 1.9.8
-RUN wget http://archive.apache.org/dist/ant/binaries/apache-ant-1.9.8-bin.tar.gz -P /opt/ant
-#Unpack Ant
+
+# Unpack Ant
 RUN tar -xvzf /opt/ant/apache-ant-1.9.8-bin.tar.gz -C /opt/ant/
+
 # Remove tar file
 RUN rm -f /opt/ant/apache-ant-1.9.8-bin.tar.gz
 #Drop Sonarqube lib
